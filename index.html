@@ -23,6 +23,31 @@
   <div id="users"></div>
   <script>
 
+    const users = [
+      {
+        username: 'johndoe',
+        password: 'password1234'
+      },
+      {
+        username: 'janedoe',
+        password: 'password5678'
+      },
+      {
+        username: 'jackdoe',
+        password: 'password9012'
+      }
+    ]
+
+    for (let i = 0; i < users.length; i++) {
+      let userElem = document.createElement('div')
+      userElem.innerHTML = `
+        <h3>${users[i].username}</h3>
+        <h4>${users[i].password}</h4>
+        <hr>
+      `
+      document.getElementById('users').append(userElem)
+    }
+
     document.getElementById('signIn').addEventListener('click', event => {
       event.preventDefault()
 
