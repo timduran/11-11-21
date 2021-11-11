@@ -7,52 +7,74 @@
   <title>Document</title>
 </head>
 <body>
-
-
-  <form>
+    <form>
     <p>
-      <label for="Tv Show">Tv show</label>
+      <label for="Tv Show">Tv Show</label>
       <input type="text" name="Tv Show" id="Tv Show">
     </p>
+    <p>
       <label for="About">About</label>
       <input type="About" name="About" id="About">
     </p>
-    <p>
-      <label for="episodes">Number of Episodes</label>
-    <input type="text" name="episodes" id="episodes">
-  </p>
-  </p>
-    <button id="signIn">Submit</button>
+    <button id="signIn">Sign In</button>
   </form>
   <div id="users"></div>
-  
   <script>
 
-    document.getElementById('signIn').addEventListener('click', event => {
+    const users = [
+        {
+          show: 'new girl',
+          
+         },
+        {
+          show: 'the office',
+          
+        },
+        {
+          show: 'that 70s show',
+          
+        },
+        { 
+          show: 'the mentalist'
+        },
+        {
+          show: 'cops'
+        }
+      ]
+      for (let i = 0; i < users.length; i++) {
+          let userElem = document.createElement('div')
+          userElem.innerHTML = `
+        <h3>${users[i].show}</h3>
+        <hr>
+      `
+         document.getElementById('users').append(userElem)
+      }
+
+
+      document.getElementById('signIn').addEventListener('click', event => {
         event.preventDefault()
 
         console.log(document.getElementById('Tv Show').value)
-        console.log(document.getElementById('About').value)
-        console.log(document.getElementById('Number of Episodes').value)
+        console.log(document.getElementById('About').value) 
 
         let userElem = document.createElement('div')
         userElem.innerHTML = `
         <h3>${document.getElementById('Tv Show').value}</h3>
         <h4>${document.getElementById('About').value}</h4>
-        <h4>${document.getElementById('Number of Episodes').value}</h4>}
         <hr>
       `
-        document.getElementById('users').append(userElem)
+        document.getElementById('users').append(element)
 
         document.getElementById('Tv show').value = ''
         document.getElementById('About').value = ''
-        document.getElementById('Number of Episodes').value = ''
     })
 
-    
+
 
 
 
   </script>
 </body>
+
 </html>
+
